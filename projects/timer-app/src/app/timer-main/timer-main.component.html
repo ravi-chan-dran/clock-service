@@ -1,1 +1,44 @@
-<h1>{{time | async | date:'h:mm:ss a' }}</h1>
+<section class="timer-container">
+    <div>
+        <mat-card class="timer-card">
+            <mat-card-header>
+
+                <section>
+                    <div>
+                        <h1>Remaining : {{stepsMins}}:{{stepsSeconds}}</h1>
+                    </div>
+                </section>
+
+            </mat-card-header>
+            <img mat-card-image src="../../assets/img/clock-with-gears.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <section>
+                    <section>
+                        <div>
+                            <span class="text-small">0</span>
+                            <mat-slider min="0" max="60" step="1" [value]="stepsMins" thumbLabel
+                                (change)="updateSettingMinutes($event)" (input)="moving($event)">
+                            </mat-slider>
+                            <span class="text-small">60 (mins)</span>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <span class="text-small">0</span>
+                            <mat-slider min="0" max="59" step="1" [value]="stepsSeconds" thumbLabel
+                                (change)="updateSettingSeconds($event)">
+                            </mat-slider>
+                            <span class="text-small">59 (Seconds)</span>
+                        </div>
+                    </section>
+
+                </section>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="started()" *ngIf="!isStarted">Start</button>
+                <button mat-raised-button (click)="stopped()" *ngIf="isStarted">Stop</button>
+
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</section>

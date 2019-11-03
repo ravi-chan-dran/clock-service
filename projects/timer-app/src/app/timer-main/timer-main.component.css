@@ -1,0 +1,11 @@
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.timer-card {
+    max-width: 400px;
+}
